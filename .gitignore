@@ -1,11 +1,20 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
+# the key
+key.js
 
-# Other files and folders
-.settings/
+# OS X
+.DS_Store*
+Icon?
+._*
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# npm
+node_modules
+node_modules/
+*.log
+*.gz
+
+# webstorm
+.idea/
+.idea
+
+# static images
+static/blog
