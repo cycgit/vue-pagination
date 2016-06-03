@@ -5,7 +5,7 @@ ul,li{
 }
 .page-bar li{
     list-style: none;
-    display: inline
+    display: inline-block;
 }
 .page-bar li:first-child>a {
    margin-left: 0px

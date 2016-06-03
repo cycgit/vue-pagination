@@ -1,8 +1,23 @@
-    var navBar = new Vue({
-        el: '.page-bar',
-        data: {
-            all: 20,
-            cur: 1,
+(function(){
+var tm = '<div class="page-bar">'+
+            '<ul>'+
+            '<li v-if="cur!=1"><a v-on:click="cur--">上一页</a></li>'+
+            '<li v-for="index in indexs"  v-bind:class="{ active: cur == index}">'+
+                '<a v-on:click="btnClick(index)">{{ index }}</a>'+
+                '</li>'+
+                '<li v-if="cur!=all"><a v-on:click="cur++">下一页</a></li>'+
+                '<li><a>共<i>{{all}}</i>页</a></li>'+
+            '</ul>'+
+        '</div>'
+
+
+
+
+    var navBar = Vue.extend({
+        template: tm,
+        props: ['cur', 'all'],
+        data: function(){
+            
         },
         computed: {
             indexs: function(){
@@ -28,34 +43,23 @@
                 left ++
             }   
             return ar
-           },
-           showLast: function(){
-                if(this.cur == this.all){
-                    return false
-                }
-                return true
-           },
-           showFirst: function(){
-                if(this.cur == 1){
-                    return false
-                }
-               return true
            }
         },
         methods: {
             btnClick: function(data){
                 if(data != this.cur){
-                    this.cur = data
+                    this.cur = data 
+                    this.$dispatch('btn-click',data) 
+
                 }
             }
-        },
-        watch: {
-            cur: function(oldValue , newValue){
-                    console.log(arguments)
-            }
         }
-      
 
 
         
     })
+
+    window.Vnav = navBar
+
+
+})()
