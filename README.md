@@ -1,2 +1,7 @@
 # vue-pagination
-vue(1.0.3) 分页组件
+简单的分页组件
+```
+git clone https://github.com/cycgit/vue-pagination.git
+open index.html
+```
+ ![image](https://github.com/cycgit/vue-pagination/blob/master/demo.png)
