@@ -4,33 +4,12 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
-    <style type="text/css">
-
-    </style>
 </head>
 <body>
-
-<!--         <div class="page-bar">
-            <ul>
-            <li v-if="showFirst"><a v-on:click="cur--">上一页</a></li>
-            <li v-for="index in indexs"  v-bind:class="{ 'active': cur == index}">
-                <a v-on:click="btnClick(index)">{{ index }}</a>
-                </li>
-                <li v-if="showLast"><a v-on:click="cur++">下一页</a></li>
-                <li><a>共<i>{{all}}</i>页</a></li>
-            </ul>
-        </div> -->
-
-        <div id="app">
-        <vue-nav :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-nav>
-          <p>{{msg}}</p>
-
-        </div>
-
-
-
-
-
+  <div id="app">
+  <vue-nav :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-nav>
+    <p>{{msg}}</p>
+  </div>
 <script src="vue.js"></script>
 <script src="vue-nav.js"></script>
 
@@ -51,11 +30,6 @@
         }
       }
   })
-
-
-
-
-
 
 </script>
    
