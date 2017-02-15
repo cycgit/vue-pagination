@@ -13,12 +13,25 @@
 
 <script>
 export default {
-    props: ['cur', 'all'],
-    data() {
-      return {}
+    props: {
+      cur: {
+        type: [String, Number],
+        required: true
+      },
+      all: {
+        type: [String, Number],
+        required: true
+      },
+      callback: {
+        default() {
+          return function callback() {
+            // todo
+          }
+        }
+      }
     },
     computed: {
-      indexs: function() {
+      indexs() {
         var left = 1
         var right = this.all
         var ar = [] 
@@ -44,10 +57,9 @@ export default {
       }
     },
     methods: {
-      btnClick(data) {
-        if (data != this.cur) {
-          this.cur = data
-          this.$dispatch('btn-click',data)
+      btnClick(page) {
+        if (page != this.cur) {
+          this.callback(page)
         }
       }
     }
