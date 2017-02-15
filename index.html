@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>vue-pagination</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <div id="app">
-  <vue-nav :cur.sync="cur" :all.sync="all" v-on:btn-click="listen"></vue-nav>
+  <vue-nav :cur="cur" :all="all" :callback="callback"></vue-nav>
     <p>{{msg}}</p>
   </div>
-<script src="vue.js"></script>
+<script src="vue2.js"></script>
 <script src="vue-nav.js"></script>
 
 <script type="text/javascript">
@@ -25,8 +25,9 @@
         'vue-nav': Vnav
       },
       methods:{
-        listen:function(data){
-            this.msg = '你点击了'+data+ '页'
+        callback(data) {
+          this.cur = data
+          this.msg = '你点击了'+data+ '页'
         }
       }
   })
